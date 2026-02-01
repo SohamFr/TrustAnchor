@@ -12,7 +12,7 @@ export default function ProfilePage() {
     const { progress, badges, toggleTheme, getSecurityClearance } = useUserProgress();
     const { isMuted, toggleMuted } = useSecurity();
     const [activeTab, setActiveTab] = useState('profile');
-    const fileInputRef = useRef(null);
+    const fileInputRef = useRef<HTMLInputElement>(null);
     const [isUploadingAvatar, setIsUploadingAvatar] = useState(false);
 
     const xpForNextLevel = (progress.level) * 500;
