@@ -88,7 +88,7 @@ const CyberBreachLogin = () => {
     const sceneRef = useRef(null);
     const engineRef = useRef(null);
     const elementsRef = useRef(new Map());
-    const requestRef = useRef<number>();
+    const requestRef = useRef<number>(0);
 
     const [breached, setBreached] = useState(false);
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
