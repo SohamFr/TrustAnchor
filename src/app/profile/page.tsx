@@ -1,5 +1,5 @@
 'use client';
-
+import { ChangeEvent } from 'react';
 import { useState, useRef } from 'react';
 import { useUserProgress } from '@/context/UserProgressContext';
 import { useUser, SignOutButton } from '@clerk/nextjs';
@@ -25,7 +25,7 @@ export default function ProfilePage() {
         { id: 'settings', label: 'Settings', icon: SettingsIcon },
     ];
 
-    const handleAvatarUpload = async (e: any) => {
+    const handleAvatarUpload = async (e: ChangeEvent<HTMLInputElement>) => {
         const file = e.target.files?.[0];
         if (!file || !user) return;
 
