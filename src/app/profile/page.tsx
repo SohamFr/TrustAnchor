@@ -25,7 +25,7 @@ export default function ProfilePage() {
         { id: 'settings', label: 'Settings', icon: SettingsIcon },
     ];
 
-    const handleAvatarUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleAvatarUpload = async (e: any) => {
         const file = e.target.files?.[0];
         if (!file || !user) return;
 
