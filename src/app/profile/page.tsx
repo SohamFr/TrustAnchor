@@ -254,7 +254,7 @@ function AchievementsTab({ badges }: { badges: any }) {
             <h2 className="text-2xl font-bold text-cyan-100 mb-6">Achievements</h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {badges.map((badge) => (
+                {badges.map((badge: any) => (
                     <BadgeCard key={badge.id} badge={badge} />
                 ))}
             </div>
