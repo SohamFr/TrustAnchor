@@ -1,8 +1,7 @@
 'use client';
 
-import TrustCore from "@/components/TrustCore";
+import { TrustCore } from "@/components/TrustCore";
 import { NetworkUplink } from "@/components/dashboard/NetworkUplink";
-import { GlitchText } from "@/components/GlitchText";
 
 export default function Home() {
   return (
@@ -21,14 +20,19 @@ export default function Home() {
             <h2 className="text-[10px] font-mono text-cyan-500/80 tracking-[0.5em] uppercase pl-2">
               Command Center • Online
             </h2>
-            <h1 className="text-3xl md:text-5xl font-bold font-mono tracking-tighter drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
-              <GlitchText text="THREAT INTELLIGENCE" />
+            <h1 className="text-3xl md:text-5xl font-bold font-mono tracking-tighter text-white drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
+              THREAT INTELLIGENCE
             </h1>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="md:col-span-2 space-y-8">
-              <div className="bg-[#050A14]/60 backdrop-blur-sm border border-cyan-900/30 rounded-xl p-6 md:p-8 relative overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="lg:col-span-2 space-y-8">
+              <div className="bg-[#050A14]/60 backdrop-blur-sm border border-cyan-900/30 rounded-xl p-6 md:p-8 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 p-4 opacity-50 group-hover:opacity-100 transition-opacity">
+                  <div className="text-[10px] font-mono text-cyan-500 uppercase tracking-widest text-right">
+                    System Ready<br />Heuristics Active
+                  </div>
+                </div>
                 <TrustCore />
               </div>
             </div>

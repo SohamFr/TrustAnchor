@@ -1,55 +1,53 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Shield, Activity, Radio } from 'lucide-react';
+import { ShieldCheck } from "lucide-react";
+import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 
-export const CredibilityHUD = () => {
+export function CredibilityHUD() {
     return (
-        <header className="fixed top-0 left-0 right-0 h-16 bg-[#050A14]/90 backdrop-blur-md border-b border-cyan-900/30 z-50 flex items-center justify-between px-6 md:px-12">
-            {/* Left: Identity */}
-            <div className="flex items-center gap-4">
-                <div className="p-2 bg-cyan-950/30 rounded border border-cyan-900/50">
-                    <Shield className="text-cyan-400" size={20} />
-                </div>
-                <div>
-                    <h1 className="text-cyan-100 font-bold tracking-widest text-lg font-mono">
-                        TRUST_ANCHOR
-                    </h1>
-                    <div className="flex items-center gap-2 text-[10px] text-cyan-600 font-mono uppercase">
-                        <span>Ver. 1.0.4</span>
-                        <span className="w-1 h-1 bg-cyan-600 rounded-full" />
-                        <span>Net_Secure</span>
-                    </div>
-                </div>
-            </div>
-
-            {/* Center: Decorative Stream - Hidden on mobile */}
-            <div className="hidden md:flex items-center gap-1 opacity-20">
-                {[...Array(5)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className="w-12 h-1 bg-cyan-400"
-                        animate={{ opacity: [0.2, 0.8, 0.2] }}
-                        transition={{ duration: 2, delay: i * 0.2, repeat: Infinity }}
-                    />
-                ))}
-            </div>
-
-            {/* Right: Status */}
-            <div className="flex items-center gap-3">
-                <div className="text-right hidden sm:block">
-                    <div className="text-xs text-cyan-400 font-mono tracking-wider">SYSTEM_ACTIVE</div>
-                    <div className="text-[10px] text-slate-500 font-mono">DATA_STREAM.04</div>
-                </div>
+        <nav className="fixed top-0 left-0 w-full p-4 z-50 flex justify-between items-center bg-transparent backdrop-blur-[2px]">
+            {/* Brand / Logo Area */}
+            <div className="flex items-center gap-2 group cursor-pointer">
                 <div className="relative">
-                    <motion.div
-                        className="absolute inset-0 bg-cyan-500 rounded-full blur-sm"
-                        animate={{ opacity: [0.2, 0.6, 0.2], scale: [1, 1.2, 1] }}
-                        transition={{ duration: 3, repeat: Infinity }}
-                    />
-                    <div className="relative z-10 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_10px_#22d3ee]" />
+                    <ShieldCheck className="w-6 h-6 text-cyan-500 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12" />
+                    <div className="absolute inset-0 bg-cyan-500/20 blur-lg rounded-full animate-pulse" />
+                </div>
+                <span className="font-mono text-sm tracking-widest text-cyan-100 font-bold group-hover:text-cyan-400 transition-colors">
+                    TRUST<span className="text-slate-500">::</span>ANCHOR
+                </span>
+            </div>
+
+            {/* Right Side Status Indicators */}
+            <div className="flex items-center gap-6">
+                <div className="hidden md:flex flex-col items-end">
+                    <span className="text-[10px] items-center font-mono text-emerald-500 tracking-wider flex gap-1">
+                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
+                        SYSTEM_ONLINE
+                    </span>
+                    <span className="text-[9px] font-mono text-slate-600">
+                        SECURE_LINK_ESTABLISHED
+                    </span>
+                </div>
+
+                <div className="flex items-center">
+                    <SignedOut>
+                        <SignInButton mode="modal">
+                            <button className="text-xs font-mono text-cyan-400 border border-cyan-900 px-3 py-1 bg-cyan-950/30 hover:bg-cyan-900/50 transition-all rounded-sm">
+                                ACCESS_TERMINAL
+                            </button>
+                        </SignInButton>
+                    </SignedOut>
+                    <SignedIn>
+                        <UserButton
+                            appearance={{
+                                elements: {
+                                    avatarBox: "w-8 h-8 ring-2 ring-cyan-900 hover:ring-cyan-500 transition-all"
+                                }
+                            }}
+                        />
+                    </SignedIn>
                 </div>
             </div>
-        </header>
+        </nav>
     );
-};
+}
