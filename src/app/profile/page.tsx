@@ -233,7 +233,7 @@ function ProfileTab() {
     );
 }
 
-function StatsTab({ progress }) {
+function StatsTab({ progress }: { progress: any }) {
     return (
         <div className="space-y-6">
             <h2 className="text-2xl font-bold text-cyan-100 mb-6">Statistics</h2>
@@ -248,7 +248,7 @@ function StatsTab({ progress }) {
     );
 }
 
-function AchievementsTab({ badges }) {
+function AchievementsTab({ badges }: { badges: any }) {
     return (
         <div className="space-y-6">
             <h2 className="text-2xl font-bold text-cyan-100 mb-6">Achievements</h2>
@@ -262,7 +262,7 @@ function AchievementsTab({ badges }) {
     );
 }
 
-function SettingsTab({ toggleTheme, theme, isMuted, toggleMuted }) {
+function SettingsTab({ toggleTheme, theme, isMuted, toggleMuted }: { toggleTheme: any, theme: any, isMuted: any, toggleMuted: any }) {
     return (
         <div className="space-y-6">
             <h2 className="text-2xl font-bold text-cyan-100 mb-6">Settings</h2>
@@ -341,7 +341,7 @@ function SettingsTab({ toggleTheme, theme, isMuted, toggleMuted }) {
     );
 }
 
-function InfoCard({ label, value }) {
+function InfoCard({ label, value }: { label: any, value: any }) {
     return (
         <div className="bg-slate-900/50 border border-cyan-900/30 rounded-xl p-5">
             <div className="text-sm text-slate-500 font-mono uppercase mb-2">{label}</div>
@@ -350,7 +350,7 @@ function InfoCard({ label, value }) {
     );
 }
 
-function StatCard({ icon, label, value, color = 'text-cyan-400' }) {
+function StatCard({ icon, label, value, color = 'text-cyan-400' }: { icon: any, label: any, value: any, color?: any }) {
     return (
         <div className="bg-slate-900/50 border border-cyan-900/30 rounded-xl p-6">
             <div className={`mb-3 ${color}`}>{icon}</div>
@@ -360,7 +360,7 @@ function StatCard({ icon, label, value, color = 'text-cyan-400' }) {
     );
 }
 
-function BadgeCard({ badge }) {
+function BadgeCard({ badge }: { badge: any }) {
     return (
         <motion.div
             initial={{ scale: 0 }}
